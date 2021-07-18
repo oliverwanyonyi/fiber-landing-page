@@ -1,10 +1,13 @@
 "use strict";
-let nav = document.querySelector(".nav-center");
+let navlinksContainer = document.querySelector(".nav-center");
+const nav = document.querySelector("nav");
 let harmburger = document.querySelector(".hambuger");
 let allSections = document.querySelectorAll(".section");
 console.log(allSections);
+const preloader = document.querySelector(".pre-loader");
+window.addEventListener("load", () => (preloader.style.display = "none"));
 harmburger.addEventListener("click", () => {
-  nav.classList.toggle("active");
+  navlinksContainer.classList.toggle("active");
   console.log("clicked");
 });
 
@@ -36,6 +39,3 @@ navlinks.forEach((link) => {
     section.scrollIntoView({ behavior: "smooth" });
   });
 });
-
-const preloader = document.querySelector(".pre-loader");
-window.addEventListener("load", () => (preloader.style.display = "none"));

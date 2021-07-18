@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sign up</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="signup-section">
+    <div class="pre-loader">
+      <div class="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+
+    <sectio class="signup-section">
       <div class="container">
         <div class="signup-container">
           <div class="brand">Fiber</div>
@@ -32,6 +40,9 @@
               />
             </div>
             <div class="user-info password">
+              <span class="toggle-password"
+                ><img src="./assets/hide password.svg" alt="hide-password"
+              /></span>
               <label for="password">Password</label>
               <input
                 type="password"
@@ -41,7 +52,7 @@
             </div>
 
             <div class="terms">
-              <p>
+              <p> <input type="checkbox" name="" id="">
                 By creating an account on fiber you agree to the
                 <a href="">Terms and Conditions</a>
               </p>
@@ -56,17 +67,24 @@
 
         <div class="signup-left">
           <div class="signup-img">
-            <img src="assets/Sign Up Image.png" alt="" />
+            <img src="./assets/Sign Up Image.png" alt="" />
           </div>
           <div class="signup-text">
             <h1>Unparalled Templates</h1>
             <p>
-              Crafted by a team of proffesional designers our templates
-              areeuniparalled in the market
+              Crafted by a team of proffesional designers our templates are
+              uniparalled in the market.
             </p>
+          </div>
+          <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <script src="./js/script.js"></script>
   </body>
 </html>

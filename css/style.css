@@ -29,6 +29,19 @@ body {
 
 nav {
   padding: 1rem 0;
+  background: var(--white);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 19;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-menu {
@@ -76,6 +89,7 @@ header {
   margin: 0 0 1rem 0;
   display: block;
   color: var(--dark);
+  font-size: 0.8rem;
   font-weight: bold;
 }
 
@@ -157,6 +171,7 @@ header {
 
 .landing-btns a {
   display: block;
+  font-size: 0.8rem;
 }
 
 .landing-btns a:nth-child(1) {
@@ -269,6 +284,7 @@ img {
   padding: 0.6rem 1.5rem;
   font-size: 1rem;
   display: block;
+  text-align: center;
   border-radius: 0.2rem;
   font-weight: bold;
 }
@@ -307,10 +323,10 @@ img {
   padding: 2rem 1.5rem;
   border-radius: 0.3rem;
   margin-bottom: 1.5rem;
-  -webkit-transition: 0.2s -webkit-transform;
-  transition: 0.2s -webkit-transform;
-  transition: 0.2s transform;
-  transition: 0.2s transform, 0.2s -webkit-transform;
+  -webkit-transition: 0.3s -webkit-transform;
+  transition: 0.3s -webkit-transform;
+  transition: 0.3s transform;
+  transition: 0.3s transform, 0.3s -webkit-transform;
 }
 
 .review blockquote {
@@ -345,7 +361,7 @@ img {
 }
 
 .footer .footer-link {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer p {
@@ -423,14 +439,14 @@ img {
 
 .signup-container form .user-info label {
   display: inline-block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
 }
 
 .signup-container form .user-info input {
   width: 100%;
   outline: 0;
   border: 1px solid #bbbbbb;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 1rem;
 }
 
@@ -448,7 +464,7 @@ img {
   width: 100%;
   background: var(--purple);
   color: var(--white);
-  padding: 1rem;
+  padding: 0.7rem;
   border: 0;
   outline: 0;
   font-weight: bold;
@@ -471,8 +487,46 @@ img {
   color: #c155ff;
 }
 
+.password {
+  position: relative;
+}
+
+.password .toggle-password {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  right: 1rem;
+  top: 2.6rem;
+  cursor: pointer;
+}
+
 .signup-left {
-  visibility: hidden;
+  display: none;
+}
+
+.dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
+.dots .dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #bbbbbb;
+  margin: 0 0.3rem;
+}
+
+.dots .dot.active {
+  background: #ececec;
 }
 
 @media (max-width: 768px) and (min-width: 600px) {
@@ -516,7 +570,7 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  z-index: 1;
+  z-index: 3;
   background: var(--purple);
 }
 
@@ -601,8 +655,8 @@ img {
   }
   .nav-menu {
     -webkit-box-flex: 1;
-        -ms-flex: auto;
-            flex: auto;
+        -ms-flex: 1;
+            flex: 1;
   }
   .nav-center {
     height: auto;
@@ -612,9 +666,9 @@ img {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    -webkit-box-flex: 1;
-        -ms-flex: auto;
-            flex: auto;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
   }
   .nav-center .nav-links {
     display: -webkit-box;
@@ -623,6 +677,7 @@ img {
   }
   .nav-center .nav-links li a {
     margin: 0 1.5rem;
+    display: block;
   }
   .auth {
     display: -webkit-box;
@@ -634,9 +689,6 @@ img {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-flex: 1;
-        -ms-flex: auto;
-            flex: auto;
   }
   .auth a {
     margin: 0 1.5rem !important;
@@ -647,9 +699,57 @@ img {
   .container {
     max-width: 85vw;
   }
-  .landing-img {
-    max-width: 400px;
-    margin: 0 auto;
+  .landing-intro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .landing-intro .landing-text {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 1rem);
+            flex: 0 0 calc(50% - 1rem);
+  }
+  .landing-intro .promotions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .landing-intro .promotions div:nth-child(1) {
+    margin-right: 1rem;
+  }
+  .landing-intro .rating {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .landing-intro .landing-img {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 1rem);
+            flex: 0 0 calc(50% - 1rem);
+  }
+  .landing-btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .landing-btns a:nth-child(1) {
+    margin-right: 1rem;
   }
   .features--wrapper {
     -ms-grid-columns: (1fr)[3];
@@ -665,10 +765,18 @@ img {
             justify-content: space-between;
   }
   .pricing--wrapper .page-img {
-    width: 500px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 1rem);
+            flex: 0 0 calc(50% - 1rem);
+  }
+  .pricing--wrapper .promotion-text {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 1rem);
+            flex: 0 0 calc(50% - 1rem);
   }
   .pricing--wrapper a {
     display: inline-block !important;
+    text-align: center;
   }
   .reviews-wrapper {
     display: -ms-grid;
@@ -718,11 +826,11 @@ img {
     color: #ffffff;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.1rem;
   }
   .signup-left .signup-text p {
     font-size: 0.8rem;
-    font-weight: bold;
-    color: #ececec;
+    color: #dbdbdb;
   }
   .signup-section .container {
     display: -ms-grid;
@@ -732,57 +840,10 @@ img {
   }
   .signup-section .container .signup-container {
     padding: 1rem 4rem;
-    max-width: 500px;
-    margin: 0 auto;
   }
 }
 
 @media (min-width: 992px) {
-  .landing-intro {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .landing-intro .landing-text {
-    max-width: 500px;
-  }
-  .landing-intro .promotions {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .landing-intro .promotions div:nth-child(1) {
-    margin-right: 1rem;
-  }
-  .landing-intro .rating {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .landing-intro .landing-img {
-    max-width: 500px;
-  }
-  .landing-btns {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .landing-btns a:nth-child(1) {
-    margin-right: 1rem;
-  }
   .reviews-wrapper {
     display: -ms-grid;
     display: grid;
